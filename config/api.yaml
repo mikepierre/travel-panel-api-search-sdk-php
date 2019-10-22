@@ -8,6 +8,7 @@ hotels_get_images:
 hotels_get_profile_by_id:
 hotels_get_locations:
 hotels_get_rates:
+hotels_search:
 
 #Cars
 #Attractions
