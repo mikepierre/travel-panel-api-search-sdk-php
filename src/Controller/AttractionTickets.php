@@ -7,7 +7,7 @@ namespace TravelPanel\Controller;
 use Symfony\Component\Yaml\Yaml;
 use TravelPanel\Helpers\CurlRequest;
 
-class Cars extends CurlRequest
+class AttractionTickets extends CurlRequest
 {
 	/**
 	 * Book a Car.
@@ -19,7 +19,7 @@ class Cars extends CurlRequest
 	{
 		$yaml = $this->getYaml("api");
 		$response = [];
-		$url = $yaml['cars_book'];
+		$url = $yaml['attraction_tickets_book'];
 		$auth = $yaml['auth'];
 
 		$paramaters = (
@@ -45,77 +45,7 @@ class Cars extends CurlRequest
 		return $response;
 	}
 	/**
-	 * Cancel Car.
-	 * @param @see api-docs
-	 * @throws Exception...
-	 * @return JSON Response
-	 */
-	public function cancel(array $data)
-	{
-		$yaml = $this->getYaml("api");
-		$response = [];
-		$url = $yaml['cars_cancel'];
-		$auth = $yaml['auth'];
-
-		$paramaters = (
-			!empty($data['params']) ? http_build_query($data['params']) : 
-			throw new Exception("Error Processing Request", 1);
-		);
-
-		$CurlRequest = new CurlRequest();
-
-		try {
-			$response = 
-			$CurlRequest->sendRequest(
-				[
-				    'url'=>$url,
-				    'paramaters'=>$paramaters,
-				    'auth'=>$auth
-			    ]
-			);
-		} catch (Exception $e) {
-		    return $e;	
-		}
-
-		return $response;
-	}
-	/**
-	 * Get Car Rental Locations.
-	 * @param @see api-docs
-	 * @throws Exception...
-	 * @return JSON Response
-	 */
-	public function locations(array $data)
-	{
-		$yaml = $this->getYaml("api");
-		$response = [];
-		$url = $yaml['cars_locations'];
-		$auth = $yaml['auth'];
-
-		$paramaters = (
-			!empty($data['params']) ? http_build_query($data['params']) : 
-			throw new Exception("Error Processing Request", 1);
-		);
-
-		$CurlRequest = new CurlRequest();
-
-		try {
-			$response = 
-			$CurlRequest->sendRequest(
-				[
-				    'url'=>$url,
-				    'paramaters'=>$paramaters,
-				    'auth'=>$auth
-			    ]
-			);
-		} catch (Exception $e) {
-		    return $e;	
-		}
-
-		return $response;
-	}
-	/**
-	 * Get Rates.
+	 * Get Car Rental Rates.
 	 * @param @see api-docs
 	 * @throws Exception...
 	 * @return JSON Response
@@ -124,7 +54,7 @@ class Cars extends CurlRequest
 	{
 		$yaml = $this->getYaml("api");
 		$response = [];
-		$url = $yaml['cars_rates'];
+		$url = $yaml['attaction_tickets_get_rates'];
 		$auth = $yaml['auth'];
 
 		$paramaters = (

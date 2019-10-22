@@ -291,7 +291,7 @@ class Hotels extends CurlRequest
 		return $response;
 	}
 	/**
-	 * Search list of hotels.
+	 * Get Yaml File.
 	 * @param service - get the yaml service file you are trying to call.
 	 * @return JSON Response
 	 */

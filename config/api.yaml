@@ -16,4 +16,6 @@ cars_cancel:
 cars_locations:
 cars_rates:
 #Attractions
+attraction_tickets_book:
+attaction_tickets_get_rates:
 #Transportation Services
