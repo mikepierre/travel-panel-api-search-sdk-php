@@ -1,28 +1,48 @@
 <?php
 
 /**
-* 
+* This controller represents a set of functions that interact with the Travel Pane API.
 */
-use TravelPanel\Controller;
+namespace TravelPanel\Controller;
 use Symfony\Component\Yaml\Yaml;
-
+use TravelPanel\Helpers\Curl;
 
 class Hotels extends Curl
 {
 	
-	function __construct()
-	{
-		# code...
-	}
-
+	function __construct(){}
+	
+	/**
+	 * Book Hotel.
+	 * @throws Exception...
+	 * @return JSON Response
+	 */
 	public function book(array $data)
 	{
-		$curl = new curl();
+		$yaml = $this->getYaml("api");
+		$response = [];
+		$url = $yaml['hotels_book'];
+		$auth = $yaml['auth'];
 
-		$response = 
-		$curl->sendRequest(
-			['url'=>,'paramaters'=>,'auth'=>]
+		$paramaters = (
+			!empty($data['params']) ? http_build_query($data['params']) : 
+			throw new Exception("Error Processing Request", 1);
 		);
+
+		$curl = new Curl();
+
+		try {
+			$response = 
+			$curl->sendRequest(
+				[
+				    'url'=>$url,
+				    'paramaters'=>$paramaters,
+				    'auth'=>$auth
+			    ]
+			);
+		} catch (Exception $e) {
+		    return $e;	
+		}
 
 		return $response;
 	}
@@ -40,5 +60,17 @@ class Hotels extends Curl
 	public function getRatesByIds(){}
 
 	public function getRates(){}
+
+    private function getYaml($service)
+    {
+        $dir    = __DIR__.'/../../config';
+
+        $d = ($dir.'/'.$service.'.yml');
+        $yaml = Yaml::parse(file_get_contents($d));
+        $yamlString = Yaml::dump($yaml);
+        $data_yaml = \Symfony\Component\Yaml\Yaml::parse($yamlString);
+
+        return $data_yaml;
+    }
 }
 ?>
