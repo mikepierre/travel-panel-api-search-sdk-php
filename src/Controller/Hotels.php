@@ -3,6 +3,10 @@
 /**
 * 
 */
+use TravelPanel\Controller;
+use Symfony\Component\Yaml\Yaml;
+
+
 class Hotels extends Curl
 {
 	
@@ -11,7 +15,7 @@ class Hotels extends Curl
 		# code...
 	}
 
-	public function bookHotel()
+	public function book(array $data)
 	{
 		$curl = new curl();
 
@@ -23,18 +27,18 @@ class Hotels extends Curl
 		return $response;
 	}
 
-	public function getAllExternalMarkets(){}
+	public function getExternalMarkets(){}
 
-	public function getALLHotelIds(){}
+	public function getlIds(){}
 
-	public function getAllHotelImages(){}
+	public function getImages(){}
 
-	public function getHotelProfileById(){}
+	public function getProfileById(){}
 
-	public function getHotelProfileByLocation(){}
+	public function getLocations(){}
+
+	public function getRatesByIds(){}
 
 	public function getRates(){}
-
-	public function searchHotels(){}
 }
 ?>
