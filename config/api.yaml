@@ -11,5 +11,9 @@ hotels_get_rates:
 hotels_search:
 
 #Cars
+cars_book:
+cars_cancel:
+cars_locations:
+cars_rates:
 #Attractions
 #Transportation Services
