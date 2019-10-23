@@ -43,6 +43,26 @@ class Transfers extends CurlRequest
 		$response = [];
 		$url = $yaml['transer_search'];
 		$auth = $yaml['auth'];
+
+		$paramaters = (
+			!empty($data['params']) ? http_build_query($data['params']) : 
+			throw new Exception("Error Processing Request", 1)
+		);
+
+		$CurelRequest = new CurelRequest();
+
+		try{
+			$CurelRequest->sendRequest(
+				[
+					'url'=>$url,
+					'paramaters'=>$paramaters,
+					'auth'=>$auth
+				]
+			);
+		} catch(Exception $e) {
+			return $e;
+		}
+		return $response;
 	}
 
 
