@@ -129,7 +129,7 @@ class Cars extends CurlRequest
 
 		$paramaters = (
 			!empty($data['params']) ? http_build_query($data['params']) : 
-			throw new Exception("Error Processing Request", 1);
+			throw new Exception("Error Processing Request", 1)
 		);
 
 		$CurlRequest = new CurlRequest();

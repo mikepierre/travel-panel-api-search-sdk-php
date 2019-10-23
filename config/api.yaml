@@ -19,3 +19,5 @@ cars_rates:
 attraction_tickets_book:
 attaction_tickets_get_rates:
 #Transportation Services
+api_search:
+api_book:
