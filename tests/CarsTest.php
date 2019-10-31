@@ -14,7 +14,8 @@ class CarsTest extends \PHPUnit_Framework_TestCase
 
     public function testLocations()
     {
-
+        $Cars = new Cars();
+        $Cars->locations([]);
     }
 
     public function testBook()
